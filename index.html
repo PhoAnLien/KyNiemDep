@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobooth</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&family=Lora:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;700&family=Ubuntu:wght@400;700&family=Nunito:wght@400;700&family=Merriweather:wght@400;700&family=PT+Sans:wght@400;700&family=Quicksand:wght@400;700&family=Cabin:wght@400;700&family=Arvo:wght@400;700&family=Oswald:wght@400;700&family=Libre+Baskerville:wght@400;700&family=Crimson+Text:wght@400;700&family=Work+Sans:wght@400;700&family=Archivo:wght@400;700&family=Rubik:wght@400;700&family=Cardo:wght@400;700&family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=DM+Serif+Display:wght@400;700&family=Overpass:wght@400;700&family=Space+Mono:wght@400;700&family=Abril+Fatface&family=Bebas+Neue&family=Cormorant+Garamond:wght@400;700&family=EB+Garamond:wght@400;700&family=Fira+Sans:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@400;700&family=Lato:wght@400;700&family=Mulish:wght@400;700&family=Old+Standard+TT:wght@400;700&family=Oxygen:wght@400;700&family=Proza+Libre:wght@400;700&family=Spectral:wght@400;700&family=Vollkorn:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="content-area">
+        <h1>✨ Kỷ Niệm Đẹp ✨</h1>
+        <div class="main-container">
+            <div class="camera-section">
+                <div class="camera-view">
+                    <video id="video" autoplay playsinline></video>
+                </div>
+                <div class="controls">
+                    <button id="toggleCamera" class="icon-btn" title="Bật/Tắt Camera"><i class="fas fa-video"></i></button>
+                    <button id="capture" class="icon-btn" title="Chụp Ảnh" disabled><i class="fas fa-camera"></i></button>
+                    <button id="resetFrame" class="icon-btn" title="Đặt Lại Khung"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                <div class="frame-options-section">
+                    <div class="text-controls">
+                        <div class="control-group">
+                            <label for="frameText">Nội dung chữ:</label>
+                            <input type="text" id="frameText" placeholder="Nhập nội dung chữ">
+                        </div>
+                        <div class="control-group">
+                            <label for="fontSelect">Font chữ:</label>
+                            <select id="fontSelect">
+                                <option value="Arial" style="font-family: Arial, sans-serif;">Arial</option>
+                                <option value="Times New Roman" style="font-family: 'Times New Roman', serif;">Times New Roman</option>
+                                <option value="Roboto" style="font-family: 'Roboto', sans-serif;">Roboto</option>
+                                <option value="Open Sans" style="font-family: 'Open Sans', sans-serif;">Open Sans</option>
+                                <option value="Lato" style="font-family: 'Lato', sans-serif;">Lato</option>
+                                <option value="Montserrat" style="font-family: 'Montserrat', sans-serif;">Montserrat</option>
+                                <option value="Oswald" style="font-family: 'Oswald', sans-serif;">Oswald</option>
+                                <option value="Raleway" style="font-family: 'Raleway', sans-serif;">Raleway</option>
+                                <option value="Nunito" style="font-family: 'Nunito', sans-serif;">Nunito</option>
+                                <option value="PT Sans" style="font-family: 'PT Sans', sans-serif;">PT Sans</option>
+                                <option value="Source Sans Pro" style="font-family: 'Source Sans Pro', sans-serif;">Source Sans Pro</option>
+                                <option value="Ubuntu" style="font-family: 'Ubuntu', sans-serif;">Ubuntu</option>
+                                <option value="Quicksand" style="font-family: 'Quicksand', sans-serif;">Quicksand</option>
+                                <option value="Playfair Display" style="font-family: 'Playfair Display', serif;">Playfair Display</option>
+                                <option value="Merriweather" style="font-family: 'Merriweather', serif;">Merriweather</option>
+                                <option value="Roboto Slab" style="font-family: 'Roboto Slab', serif;">Roboto Slab</option>
+                                <option value="Pacifico" style="font-family: 'Pacifico', cursive;">Pacifico</option>
+                                <option value="Indie Flower" style="font-family: 'Indie Flower', cursive;">Indie Flower</option>
+                                <option value="Fira Mono" style="font-family: 'Fira Mono', monospace;">Fira Mono</option>
+                                <option value="Anton" style="font-family: 'Anton', sans-serif;">Anton</option>
+                                <option value="Permanent Marker" style="font-family: 'Permanent Marker', cursive;">Permanent Marker</option>
+                                <option value="Baloo 2" style="font-family: 'Baloo 2', cursive;">Baloo 2</option>
+                                <option value="Fredoka One" style="font-family: 'Fredoka One', cursive;">Fredoka One</option>
+                                <option value="Russo One" style="font-family: 'Russo One', sans-serif;">Russo One</option>
+                                <option value="Great Vibes" style="font-family: 'Great Vibes', cursive;">Great Vibes</option>
+                                <option value="Orbitron" style="font-family: 'Orbitron', sans-serif;">Orbitron</option>
+                                <option value="Sacramento" style="font-family: 'Sacramento', cursive;">Sacramento</option>
+                                <option value="Shadows Into Light" style="font-family: 'Shadows Into Light', cursive;">Shadows Into Light</option>
+                                <option value="Amatic SC" style="font-family: 'Amatic SC', cursive;">Amatic SC</option>
+                                <option value="Arvo" style="font-family: 'Arvo', serif;">Arvo</option>
+                                <option value="Cairo" style="font-family: 'Cairo', sans-serif;">Cairo</option>
+                                <option value="Crete Round" style="font-family: 'Crete Round', serif;">Crete Round</option>
+                                <option value="Didact Gothic" style="font-family: 'Didact Gothic', sans-serif;">Didact Gothic</option>
+                                <option value="Encode Sans" style="font-family: 'Encode Sans', sans-serif;">Encode Sans</option>
+                                <option value="Gudea" style="font-family: 'Gudea', sans-serif;">Gudea</option>
+                                <option value="Heebo" style="font-family: 'Heebo', sans-serif;">Heebo</option>
+                                <option value="IBM Plex Sans" style="font-family: 'IBM Plex Sans', sans-serif;">IBM Plex Sans</option>
+                                <option value="Jost" style="font-family: 'Jost', sans-serif;">Jost</option>
+                                <option value="Kumbh Sans" style="font-family: 'Kumbh Sans', sans-serif;">Kumbh Sans</option>
+                                <option value="Lora" style="font-family: 'Lora', serif;">Lora</option>
+                                <option value="Merriweather Sans" style="font-family: 'Merriweather Sans', sans-serif;">Merriweather Sans</option>
+                                <option value="Noto Sans" style="font-family: 'Noto Sans', sans-serif;">Noto Sans</option>
+                                <option value="PT Mono" style="font-family: 'PT Mono', monospace;">PT Mono</option>
+                                <option value="Quintessential" style="font-family: 'Quintessential', cursive;">Quintessential</option>
+                                <option value="Saira" style="font-family: 'Saira', sans-serif;">Saira</option>
+                                <option value="Tajawal" style="font-family: 'Tajawal', sans-serif;">Tajawal</option>
+                                <option value="Vollkorn" style="font-family: 'Vollkorn', serif;">Vollkorn</option>
+                                <option value="Yeseva One" style="font-family: 'Yeseva One', cursive;">Yeseva One</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="textColor">Màu chữ:</label>
+                            <input type="color" id="textColor" value="#000000">
+                        </div>
+                        <div class="control-group">
+                            <label for="textSize">Kích thước chữ: <span id="textSizeValue">16</span>px</label>
+                            <input type="range" id="textSize" min="10" max="72" value="16">
+                        </div>
+                        <div class="control-group">
+                            <label for="textRotation">Góc xoay chữ: <span id="textRotationValue">0</span>°</label>
+                            <input type="range" id="textRotation" min="0" max="360" value="0">
+                        </div>
+                        <div class="button-group">
+                            <button id="addTextBtn" class="add-text-btn">Thêm chữ</button>
+                            <button id="removeTextBtn" class="remove-text-btn">Xóa chữ</button>
+                            <button id="addStickerBtn" class="add-sticker-btn">Thêm Sticker</button>
+                            <input type="file" id="stickerUpload" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="frame-controls">
+                        <div class="control-group">
+                            <label for="backgroundColor">Màu nền:</label>
+                            <input type="color" id="backgroundColor" value="#2c3e50">
+                        </div>
+                        <div class="control-group">
+                            <label for="backgroundImage">Ảnh nền:</label>
+                            <input type="file" id="backgroundImage" accept="image/*">
+                        </div>
+                        <div class="control-group">
+                            <button id="removeBackgroundBtn" class="remove-background-btn">Xóa ảnh nền</button>
+                        </div>
+                        <div class="control-group">
+                            <label for="repeatBackground">
+                                <input type="checkbox" id="repeatBackground" checked> Lặp lại ảnh nền
+                            </label>
+                        </div>
+                        <div class="control-group">
+                            <label for="frameOrientation">Hướng khung:</label>
+                            <select id="frameOrientation">
+                                <option value="vertical">Dọc</option>
+                                <option value="square">Vuông</option>
+                            </select>
+                        </div>
+                        <button id="downloadPhoto" class="download-btn">Tải ảnh</button>
+                    </div>
+                </div>
+            </div>
+            <div class="photobooth-section">
+                <div class="decoration-overlay">📸 Khung ảnh của bạn 📸</div>
+                <div class="photobooth-frame" id="photoboothFrame">
+                    <div class="background-layer" id="backgroundLayer"></div>
+                    <div class="frame-header"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
